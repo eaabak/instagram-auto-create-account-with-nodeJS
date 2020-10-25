@@ -29,7 +29,7 @@ const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitT
     let fMail = fakeMail.split("@");
     let mailName = fMail[0];
     let domain = fMail[1];
-    let veriCode = await verifiCode.getInstCode(domain, mailName);
+    let veriCode = await verifiCode.getInstCode(domain, mailName, browser);
     console.log(veriCode);
     sleep(2000);
     await browser.findElement(By.name("email_confirmation_code")).sendKeys(veriCode, Key.RETURN);

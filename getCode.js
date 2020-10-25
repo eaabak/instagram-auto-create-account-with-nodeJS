@@ -2,7 +2,7 @@ const { Builder, By, Key, until } = require('selenium-webdriver');
 
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 
-const getInstCode = async function (domain, mailName) {
+const getInstCode = async function (domain, mailName, browser) {
 
     const INST_CODE = 'https://email-fake.com/' + domain + '/' + mailName;
     let code = "";
@@ -15,11 +15,8 @@ const getInstCode = async function (domain, mailName) {
     } catch (error) {
 
     } finally {
-    await browser.quit();
-    }
     return code;
-
-
+    }
 };
 
 module.exports = { getInstCode };
